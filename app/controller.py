@@ -17,6 +17,15 @@ def basic(player_1_choice, player_2_choice):
     # do the thing here in the models
     # then return the thing from the models to the viewer ie templates page.
     return f"Winner is: {game.check_winner(player_1, player_2).name}"
+    # return render_template('basic.html', player_1, player_2)
+
+
+@app.route('/basic2')
+def basic2():
+    player_1 = Player("Player 1", "Rock")
+    player_2 = Player("Player 2", "Scissors")
+    game = RockPaper(player_1, player_2)
+    return render_template('basic.html', player_1=player_1, player_2=player_2)
 
 # @app.route('/add-event', methods=['POST'])
 # def add_event():
