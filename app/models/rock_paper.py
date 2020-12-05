@@ -6,3 +6,5 @@ class RockPaper():
 
     def check_winner(self, player_1, player_2):
         return player_1
+        # else:
+        #     return None

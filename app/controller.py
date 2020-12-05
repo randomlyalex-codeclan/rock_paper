@@ -4,13 +4,8 @@ from app.models.rock_paper import RockPaper
 from app.models.player import Player
 
 
-@app.route('/')
-def index():
-    return render_template('index.html', title='Home')
-
-
-@app.route('/basic/<player_1_choice>/<player_2_choice>')
-def basic(player_1_choice, player_2_choice):
+@app.route('/<player_1_choice>/<player_2_choice>')
+def mvp(player_1_choice, player_2_choice):
     player_1 = Player("Player 1", player_1_choice)
     player_2 = Player("Player 2", player_2_choice)
     game = RockPaper(player_1, player_2)
@@ -20,21 +15,13 @@ def basic(player_1_choice, player_2_choice):
     # return render_template('basic.html', player_1, player_2)
 
 
-@app.route('/basic2')
-def basic2():
-    player_1 = Player("Player 1", "Rock")
-    player_2 = Player("Player 2", "Scissors")
-    game = RockPaper(player_1, player_2)
-    return render_template('basic2.html', player_1=player_1, player_2=player_2)
+@app.route('/')
+def extension():
+    return render_template('index.html')
 
 
-@app.route('/basic3')
-def basic3():
-    return render_template('basic3.html')
-
-
-@app.route('/basic4', methods=['POST'])
-def basic4():
+@app.route('/play_game', methods=['POST'])
+def play_game():
     player_1_name_input = request.form['player_1_name']
     player_1_choice_input = request.form['player_1_choice']
     player_2_name_input = request.form['player_2_name']
@@ -42,7 +29,8 @@ def basic4():
     player_1 = Player(player_1_name_input, player_1_choice_input)
     player_2 = Player(player_2_name_input, player_2_choice_input)
     game = RockPaper(player_1, player_2)
-    return render_template('basic2.html', player_1=player_1, player_2=player_2, game=game)
+    winner = game.check_winner(player_1, player_2)
+    return render_template('results.html', player_1=player_1, player_2=player_2, game=game, winner=winner)
 
 # @app.route('/add-event', methods=['POST'])
 # def add_event():

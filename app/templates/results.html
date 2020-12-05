@@ -1,0 +1,10 @@
+{% extends "index.html" %}
+{% block results %}
+
+{% if winner != None %}
+Winner is {{winner.name}}
+{% else %}
+Its a Draw!
+{% endif %} 
+
+{% endblock %}
