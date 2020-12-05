@@ -6,6 +6,11 @@ from app import app
 def index():
     return render_template('index.html', title='Home')
 
+
+@app.route('/basic/<player_1>/<player_2>')
+def basic(player_1, player_2):
+    return f"{player_1} vs {player_2}"
+
 # @app.route('/add-event', methods=['POST'])
 # def add_event():
 #   date = request.form['date']
