@@ -1,7 +1,7 @@
 class Player():
     valid_choices = [
-        "rock"
-        "paper"
+        "rock",
+        "paper",
         "scissors"
     ]
 
