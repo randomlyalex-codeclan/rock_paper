@@ -25,7 +25,24 @@ def basic2():
     player_1 = Player("Player 1", "Rock")
     player_2 = Player("Player 2", "Scissors")
     game = RockPaper(player_1, player_2)
-    return render_template('basic.html', player_1=player_1, player_2=player_2)
+    return render_template('basic2.html', player_1=player_1, player_2=player_2)
+
+
+@app.route('/basic3')
+def basic3():
+    return render_template('basic3.html')
+
+
+@app.route('/basic4', methods=['POST'])
+def basic4():
+    player_1_name_input = request.form['player_1_name']
+    player_1_choice_input = request.form['player_1_choice']
+    player_2_name_input = request.form['player_2_name']
+    player_2_choice_input = request.form['player_2_choice']
+    player_1 = Player(player_1_name_input, player_1_choice_input)
+    player_2 = Player(player_2_name_input, player_2_choice_input)
+    game = RockPaper(player_1, player_2)
+    return render_template('basic2.html', player_1=player_1, player_2=player_2)
 
 # @app.route('/add-event', methods=['POST'])
 # def add_event():
