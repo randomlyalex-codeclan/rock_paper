@@ -1,21 +1,94 @@
 body {
-
-    background-color: #92BCEA;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    background-color: hsl(0, 0%, 100%);
+}
+header  {
+    background-color:hsl(0, 0%, 53%);
+    border-radius: 20px;
 }
 
 header > nav > ul {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     list-style: none;
+    justify-content: center;
+    align-items: flex-start;
+
 }
 
 header > nav > ul > li {
-    padding: 1em;
+    margin: 10px 1em;
+    width: 75px;
+    text-align: center;
+    padding: 2px 7px 7px 7px;
+    border-radius: 10px;
+    border: 3px solid #000000;
+}
+header > nav > ul > li > a {
+    text-decoration: none;
+    color: black;
 }
 
-body > main > {
-    display: flex;
+header > nav {
+    background-color:hsl(0, 0%, 53%);
+    padding: 0 1em 0 0;
+    flex-basis: 10%;
+
+}
+
+body > main {
+    display:flex;
+    flex-direction: column;
     justify-content: center;
+    align-content: space-around;
+    align-items: center;
+    flex-basis: 10em;
+}
+
+#game_window {
+
+}
+
+#player_setup, #results_page {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding:30px;
     align-items: center;
 }
+
+#player_1, #player_2, #result {
+    padding: 20px;
+    border-radius: 10px;
+    border: 3px solid #000000;
+}
+
+#start_game {
+    text-align: center;
+    width: 100px;
+    border-radius: 10px;
+}
+
+.player_input, .setting_input {
+    text-align: center;
+    width: 100px;
+    border-radius: 10px;
+
+}
+
+body > footer {
+    display:flex;
+    flex-basis: 10%;
+    justify-content: center;
+    align-items: flex-end;
+    font-size: 11;
+    
+}
+
+
 

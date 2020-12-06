@@ -18,14 +18,18 @@
     </nav>
   </header>
   <main>
-    {% block index %}{% endblock %}
-    {% block computer %}{% endblock %}
-    {% block help %}{% endblock %}
-    {% block results %}{% endblock %}
-    {% block settings %}{% endblock %}
+    <header></header>
+    <main id="game_window">
+      {% block index %}{% endblock %}
+      {% block computer %}{% endblock %}
+      {% block help %}{% endblock %}
+      {% block results %}{% endblock %}
+      {% block settings %}{% endblock %}
+    </main>
+    <footer></footer>
   </main>
   <footer>
-    All rights for the totally original game of Rock paper scissors are reserved to Alex
+    <footnote>All rights for the totally original game of Rock paper scissors are reserved to Alex</footnote>
   </footer>
 </body>
 

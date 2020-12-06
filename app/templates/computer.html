@@ -2,22 +2,21 @@
 {% block computer %}
 
 
-<form class="" action="/play_computer" method="post">
-    <section id="player_setup">
-        <div id="player_1">
-            <label for="player_1_name_">Player 1 name:</label>
-            <input type="text" name="player_1_name" id="player_1_name">
-            <div id="player_1_choices">
-                {% for choice in choices %}
-                <label for="player_1_choice">{{ choice }}</label>
-                <input type="radio" name="player_1_choice" value="{{ choice }}">
-                {% endfor %}
-            </div>
+<form class="" id="player_setup" action="/play_computer" method="post">
+
+    <div id="player_1">
+        <label for="player_1_name_">Player 1 name:</label>
+        <input type="text" name="player_1_name" class="player_input">
+        <div id="player_1_choices">
+            {% for choice in choices %}
+            <label for="player_1_choice">{{ choice }}</label>
+            <input type="radio" name="player_1_choice" value="{{ choice }}" class="hidden_selection">
+            {% endfor %}
         </div>
-    </section>
-    <input type="submit" value="Start Game">
-
-
+    </div>
+    <br>
+    <br>
+    <input type="submit" value="Start Game" id="start_game">
 </form>
 
 {% block results %}{% endblock %}

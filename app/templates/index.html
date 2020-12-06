@@ -2,33 +2,33 @@
 {% block index %}
 
 
-<form class="" action="/play_game" method="post">
-    <section id="player_setup">
-        <div id="player_1">
-            <label for="player_1_name_">Player 1 name:</label>
-            <input type="text" name="player_1_name" id="player_1_name">
-            <div id="player_1_choices">
-                {% for choice in choices %}
-                <label for="player_1_choice">{{ choice }}</label>
-                <input type="radio" name="player_1_choice" value="{{ choice }}">
-                {% endfor %}
-            </div>
-        </div>
-        <div id="player_2">
-            <label for="player_2_name">Player 2 name: </label>
-            <input type="text" name="player_2_name" id="player_2_name">
-            <div id="player_2_choices">
-                {% for choice in choices %}
-                <label for="player_2_choice">{{ choice }}</label>
-                <input type="radio" name="player_2_choice" value="{{ choice }}">
-                {% endfor %}
-            </div>
-        </div>
+<form class="" id="player_setup" action="/play_game" method="post">
 
-    </section>
-    <input type="submit" value="Start Game">
-
-    
+    <div id="player_1">
+        <label for="player_1_name_">Player 1 name:</label>
+        <input type="text" name="player_1_name" class="player_input">
+        <div id="player_1_choices">
+            {% for choice in choices %}
+            <label for="player_1_choice">{{ choice }}</label>
+            <input type="radio" name="player_1_choice" value="{{ choice }}" class="hidden_selection">
+            {% endfor %}
+        </div>
+    </div>
+    <br>
+    <br>
+    <div id="player_2">
+        <label for="player_2_name">Player 2 name: </label>
+        <input type="text" name="player_2_name" class="player_input">
+        <div id="player_2_choices">
+            {% for choice in choices %}
+            <label for="player_2_choice">{{ choice }}</label>
+            <input type="radio" name="player_2_choice" value="{{ choice }}" class="hidden_selection">
+            {% endfor %}
+        </div>
+    </div>
+    <br>
+    <br>
+    <input type="submit" value="Start Game" id="start_game">
 </form>
 
 
