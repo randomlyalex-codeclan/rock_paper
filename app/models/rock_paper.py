@@ -1,6 +1,10 @@
+from app.models.player import Player
+import random
+
+
 class RockPaper():
 
-    def __init__(self, player_1, player_2):
+    def __init__(self, player_1, player_2=None):
         self.player_1 = player_1
         self.player_2 = player_2
         self.win_dict = {
@@ -21,3 +25,9 @@ class RockPaper():
                 return None
         else:
             return "Not a valid choice"
+
+    def play_computer(self):
+        choices_keys_list = list(self.win_dict.keys())
+        computer_choice = random.choice(choices_keys_list)
+        computer_player = Player("Computer", computer_choice)
+        return computer_player

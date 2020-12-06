@@ -19,8 +19,23 @@ def mvp(player_1_choice, player_2_choice):
 
 
 @app.route('/')
+def base():
+    return render_template('base.html', title="Rock, Paper, Scissors!")
+
+
+@app.route('/extension')
 def extension():
-    return render_template('index.html')
+    return render_template('index.html', title="2 Player")
+
+
+@app.route('/computer')
+def computer():
+    return render_template('computer.html', title="1 Player")
+
+
+@app.route('/help')
+def help():
+    return render_template('help.html', title="Rules and Instructions")
 
 
 @app.route('/play_game', methods=['POST'])
@@ -32,8 +47,22 @@ def play_game():
     player_1 = Player(player_1_name_input, player_1_choice_input)
     player_2 = Player(player_2_name_input, player_2_choice_input)
     game = RockPaper(player_1, player_2)
+    choices_list_keys = game.win_dict.keys()
     result = game.check_winner(player_1, player_2)
-    return render_template('results.html', player_1=player_1, player_2=player_2, game=game, result=result)
+    return render_template('results.html', player_1=player_1, player_2=player_2, game=game, result=result, choices=choices_list_keys, title="Results are in!")
+
+
+@app.route('/play_computer', methods=['POST'])
+def play_computer():
+    player_1_name_input = request.form['player_1_name']
+    player_1_choice_input = request.form['player_1_choice']
+    player_1 = Player(player_1_name_input, player_1_choice_input)
+    game = RockPaper(player_1)
+    player_2 = game.play_computer()
+    choices_list_keys = list(game.win_dict.keys())
+    result = game.check_winner(player_1, player_2)
+    return render_template('results.html', player_1=player_1, player_2=player_2, game=game, result=result, choices=choices_list_keys, title="Results are in!")
+
 
 # @app.route('/add-event', methods=['POST'])
 # def add_event():

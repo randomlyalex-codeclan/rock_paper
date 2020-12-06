@@ -6,11 +6,25 @@
 </head>
 
 <body>
-  <ul>
-    <li><a href="/">Reset</a></li>
-  </ul>
-  <hr />
-  {% block index %}{% endblock %}
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/computer">1 Player</a></li>
+        <li><a href="/extension">2 Player</a></li>
+        <li><a href="/help">Help</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    {% block index %}{% endblock %}
+    {% block computer %}{% endblock %}
+    {% block help %}{% endblock %}
+    {% block results %}{% endblock %}
+  </main>
+  <footer>
+    All rights for the totally original game of Rock paper scissors are reserved to Alex
+  </footer>
 </body>
 
 </html>

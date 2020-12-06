@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block index %}
+{% block computer %}
 <section id="player1">
 
 </section>
@@ -11,23 +11,17 @@
 
 </section>
 
-<form class="" action="/play_game" method="post">
+<form class="" action="/play_computer" method="post">
     <div>
         <label for="player_1_name_">Player 1 name:</label>
         <input type="text" name="player_1_name" id="player_1_name">
         <label for="player_1_choice">Player 1: Choice</label>
         <input type="text" name="player_1_choice" id="player_1_choice">
+        <input type="submit" value="Start Game">
     </div>
 
-    <div>
-        <label for="player_2_name">Player 2 name: </label>
-        <input type="text" name="player_2_name" id="player_2_name">
-        <label for="name">Player 2 choice: </label>
-        <input type="text" name="player_2_choice" id="player_2_choice">
-    </div>
-    <input type="submit" value="Start Game">
 </form>
 
-
+{% block results %}{% endblock %}
 
 {% endblock %}
