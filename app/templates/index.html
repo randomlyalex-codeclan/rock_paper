@@ -3,37 +3,32 @@
 
 
 <form class="" action="/play_game" method="post">
-    <div id="player_setup">
-        <label for="player_1_name_">Player 1 name:</label>
-        <input type="text" name="player_1_name" id="player_1_name">
-        <div id="player_1_choices">
-            {% for choice in choices %}
-            <label for="player_1_choice">{{ choice }}</label>
-            <input type="radio" name="player_1_choice" value="{{ choice }}">
-            {% endfor %}
+    <section id="player_setup">
+        <div id="player_1">
+            <label for="player_1_name_">Player 1 name:</label>
+            <input type="text" name="player_1_name" id="player_1_name">
+            <div id="player_1_choices">
+                {% for choice in choices %}
+                <label for="player_1_choice">{{ choice }}</label>
+                <input type="radio" name="player_1_choice" value="{{ choice }}">
+                {% endfor %}
+            </div>
         </div>
-        <label for="player_2_name">Player 2 name: </label>
-        <input type="text" name="player_2_name" id="player_2_name">
-        <div id="player_2_choices">
-            {% for choice in choices %}
-            <label for="player_2_choice">{{ choice }}</label>
-            <input type="radio" name="player_2_choice" value="{{ choice }}">
-            {% endfor %}
+        <div id="player_2">
+            <label for="player_2_name">Player 2 name: </label>
+            <input type="text" name="player_2_name" id="player_2_name">
+            <div id="player_2_choices">
+                {% for choice in choices %}
+                <label for="player_2_choice">{{ choice }}</label>
+                <input type="radio" name="player_2_choice" value="{{ choice }}">
+                {% endfor %}
+            </div>
         </div>
-    </div>
+
+    </section>
     <input type="submit" value="Start Game">
 
-
-    <section id="player1">
-
-    </section>
-    <section id="player2">
-
-    </section>
-
-    <section id="results">
-
-    </section>
+    
 </form>
 
 

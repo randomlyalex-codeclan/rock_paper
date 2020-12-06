@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% block results %}
+<section id="results">
+
 
 {% if result != "Not a valid choice" %}
 Player 1: {{player_1.name}}, played: {{player_1.choice}}  <br>
@@ -13,5 +15,5 @@ Not a valid entry.
 {% else %}
 Winner is {{result.name}}
 {% endif %} 
-
+</section>
 {% endblock %}
