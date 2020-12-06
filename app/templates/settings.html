@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block settings %}
+
+
+<form class="" action="/save_settings" method="post">
+    <div id="settings">
+        <label for="setting_1">Setting 1:</label>
+        <input type="text" name="setting_1" class="setting_1">
+
+        <label for="setting_2">Setting 2:</label>
+        <input type="text" name="setting_2" class="setting_2">
+
+        <label for="setting_3">Setting 3:</label>
+        <input type="text" name="setting_3" class="setting_3">
+
+        <label for="setting_4">Setting 4:</label>
+        <input type="text" name="setting_4" class="setting_4">
+
+        <label for="setting_5">Setting 5:</label>
+        <input type="text" name="setting_5" class="setting_5">
+
+        <input type="submit" value="Save settings">
+    </div>
+
+</form>
+
+{% endblock %}

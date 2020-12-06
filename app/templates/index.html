@@ -1,31 +1,39 @@
 {% extends "base.html" %}
 {% block index %}
-<section id="player1">
 
-</section>
-<section id="player2">
-
-</section>
-
-<section id="results">
-
-</section>
 
 <form class="" action="/play_game" method="post">
-    <div>
+    <div id="player_setup">
         <label for="player_1_name_">Player 1 name:</label>
         <input type="text" name="player_1_name" id="player_1_name">
-        <label for="player_1_choice">Player 1: Choice</label>
-        <input type="text" name="player_1_choice" id="player_1_choice">
-    </div>
-
-    <div>
+        <div id="player_1_choices">
+            {% for choice in choices %}
+            <label for="player_1_choice">{{ choice }}</label>
+            <input type="radio" name="player_1_choice" value="{{ choice }}">
+            {% endfor %}
+        </div>
         <label for="player_2_name">Player 2 name: </label>
         <input type="text" name="player_2_name" id="player_2_name">
-        <label for="name">Player 2 choice: </label>
-        <input type="text" name="player_2_choice" id="player_2_choice">
+        <div id="player_2_choices">
+            {% for choice in choices %}
+            <label for="player_2_choice">{{ choice }}</label>
+            <input type="radio" name="player_2_choice" value="{{ choice }}">
+            {% endfor %}
+        </div>
     </div>
     <input type="submit" value="Start Game">
+
+
+    <section id="player1">
+
+    </section>
+    <section id="player2">
+
+    </section>
+
+    <section id="results">
+
+    </section>
 </form>
 
 

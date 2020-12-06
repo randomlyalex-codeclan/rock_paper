@@ -20,17 +20,27 @@ def mvp(player_1_choice, player_2_choice):
 
 @app.route('/')
 def base():
+    game = RockPaper()
     return render_template('base.html', title="Rock, Paper, Scissors!")
 
 
 @app.route('/extension')
 def extension():
-    return render_template('index.html', title="2 Player")
+    game = RockPaper()
+    choices_list_keys = game.win_dict.keys()
+    return render_template('index.html', title="2 Player", choices=choices_list_keys)
 
 
 @app.route('/computer')
 def computer():
-    return render_template('computer.html', title="1 Player")
+    game = RockPaper()
+    choices_list_keys = game.win_dict.keys()
+    return render_template('computer.html', title="1 Player", choices=choices_list_keys)
+
+
+@app.route('/settings')
+def settings():
+    return render_template('settings.html', title="Settings")
 
 
 @app.route('/help')
