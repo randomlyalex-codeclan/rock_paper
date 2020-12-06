@@ -9,10 +9,13 @@ def mvp(player_1_choice, player_2_choice):
     player_1 = Player("Player 1", player_1_choice)
     player_2 = Player("Player 2", player_2_choice)
     game = RockPaper(player_1, player_2)
-    # do the thing here in the models
-    # then return the thing from the models to the viewer ie templates page.
-    return f"Winner is: {game.check_winner(player_1, player_2).name} with {game.check_winner(player_1, player_2).choice}"
-    # return render_template('basic.html', player_1, player_2)
+    result = game.check_winner(player_1, player_2)
+    if result == "Not a valid choice":
+        return "Not a valid choice"
+    elif result != None:
+        return f"Winner is: {result.name} with {result.choice}"
+    else:
+        return "It is a Draw"
 
 
 @app.route('/')
@@ -29,8 +32,8 @@ def play_game():
     player_1 = Player(player_1_name_input, player_1_choice_input)
     player_2 = Player(player_2_name_input, player_2_choice_input)
     game = RockPaper(player_1, player_2)
-    winner = game.check_winner(player_1, player_2)
-    return render_template('results.html', player_1=player_1, player_2=player_2, game=game, winner=winner)
+    result = game.check_winner(player_1, player_2)
+    return render_template('results.html', player_1=player_1, player_2=player_2, game=game, result=result)
 
 # @app.route('/add-event', methods=['POST'])
 # def add_event():
