@@ -14,9 +14,10 @@ class RockPaper():
         }
 
     def check_winner(self, player_1, player_2):
-        if player_1.choice.lower() in self.win_dict.keys() and player_2.choice.lower() in self.win_dict.keys():
-            choice1 = player_1.choice.lower()
-            choice2 = player_2.choice.lower()
+        # if player_1.choice.lower() in self.win_dict.keys() and player_2.choice.lower() in self.win_dict.keys():
+        choice1 = player_1.choice.lower()
+        choice2 = player_2.choice.lower()
+        if self.win_dict.get(choice1) and self.win_dict.get(choice2) != None:
             if self.win_dict.get(choice1) == choice2:
                 return player_1
             elif self.win_dict.get(choice2) == choice1:

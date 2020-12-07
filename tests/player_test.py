@@ -12,7 +12,7 @@ class PlayerTest(unittest.TestCase):
 
 
     def test_name_exists(self):
-        self.assertEquals("Rocky", self.player1.name)
+        self.assertEqual("Rocky", self.player1.name)
 
     def test_choice_exists(self):
-        self.assertEquals("Scissors", self.player2.choice)
+        self.assertEqual("Scissors", self.player2.choice)
